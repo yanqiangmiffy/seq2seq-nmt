@@ -34,4 +34,6 @@ print(decoder_infer.summary())
 # 模型训练
 model_train.fit([encoder_input,decoder_input],decoder_output,batch_size=batch_size,epochs=epoch,validation_split=0.2)
 
-
+model_train.save_model("result/model_train.h5")
+encoder_infer.save_model("result/encoder_infer.h5")
+decoder_infer.save_model("result/decoder_infer.h5")

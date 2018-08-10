@@ -1,4 +1,5 @@
 from utils import load_data
+from keras.models import load_model
 import numpy as np
 
 # 参数设置
@@ -34,6 +35,8 @@ def predict_chinese(source,encoder_inference, decoder_inference, n_steps, featur
             break
     return output
 
+encoder_infer=load_model('result/encoder_infer.h5')
+decoder_infer=load_model('result/decoder_infer.h5')
 
 for i in range(1000,1100):
     test = encoder_input[i:i+1,:,:]#i:i+1保持数组是三维
