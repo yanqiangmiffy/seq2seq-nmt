@@ -10,8 +10,14 @@ https://blog.csdn.net/PIPIXIU/article/details/81016974
 
 ## 推理模型结构
 - encoder
+
 ![](https://github.com/yanqiangmiffy/seq2seq-nmt/blob/master/assets/encoder.png)
+
 - decoder
+
 ![](https://github.com/yanqiangmiffy/seq2seq-nmt/blob/master/assets/decoder.png)
 
 
+## 参考：
+
+https://github.com/pjgao/seq2seq_keras/blob/master/seq2seq_keras.ipynb
