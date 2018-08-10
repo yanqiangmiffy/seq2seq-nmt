@@ -1,6 +1,5 @@
 from keras.layers import Input,LSTM,Dense
 from keras.models import Model,load_model
-from keras.utils import plot_model
 
 
 class Seq2Seq(object):
@@ -9,9 +8,6 @@ class Seq2Seq(object):
         self.n_input=n_input
         self.n_output=n_output
         self.n_units=n_units
-
-        self.model,self.encoder_infer,self.decoder_infer\
-            =self.create_model()
 
     def create_model(self):
         # encoder
@@ -41,7 +37,7 @@ class Seq2Seq(object):
         decoder_output,_,_=decoder(decoder_input,initial_state=encoder_state)
 
         # 输出序列经过全连接层得到结果
-        decoder_dense=Dense(self.n_output,activation='sofrmax')
+        decoder_dense=Dense(self.n_output,activation='softmax')
         decoder_output=decoder_dense(decoder_output)
 
 
