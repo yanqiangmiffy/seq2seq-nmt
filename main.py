@@ -1,15 +1,46 @@
+from model import Seq2Seq
 from utils import load_data
-from keras.models import load_model
+from keras.utils import plot_model
+import os
 import numpy as np
-import argparse
+
+os.environ["PATH"] += os.pathsep + 'E:/Program Files (x86)/Graphviz2.38/bin'
+
 # 参数设置
 file_path='data/cmn.txt'
+n_units = 256
+batch_size = 64
+epoch = 200
 num_samples = 10000
 
 # 加载数据
 input_texts,target_texts,target_dict,target_dict_reverse,\
-           output_length,input_feature_length,output_feature_length,\
-           encoder_input,decoder_input,decoder_output=load_data(file_path,num_samples)
+    output_length,input_feature_length,output_feature_length,\
+    encoder_input,decoder_input,decoder_output=load_data(file_path,num_samples)
+
+seq2seq=Seq2Seq(input_feature_length,output_feature_length,n_units)
+model_train,encoder_infer,decoder_infer=seq2seq.create_model()
+
+
+# 查看模型结构
+plot_model(to_file='assets/model.png',model=model_train,show_shapes=True)
+plot_model(to_file='assets/encoder.png',model=encoder_infer,show_shapes=True)
+plot_model(to_file='assets/decoder.png',model=decoder_infer,show_shapes=True)
+
+model_train.compile(optimizer='rmsprop', loss='categorical_crossentropy')
+encoder_infer.compile(optimizer='rmsprop')
+decoder_infer.compile(optimizer='rmsprop')
+
+print(model_train.summary())
+print(encoder_infer.summary())
+print(decoder_infer.summary())
+
+# 模型训练
+model_train.fit([encoder_input,decoder_input],decoder_output,batch_size=batch_size,epochs=epoch,validation_split=0.2)
+
+model_train.save("result/model_train.h5")
+encoder_infer.save("result/encoder_infer.h5")
+decoder_infer.save("result/decoder_infer.h5")
 
 
 def predict_chinese(source,encoder_inference, decoder_inference, n_steps, features):
@@ -36,20 +67,9 @@ def predict_chinese(source,encoder_inference, decoder_inference, n_steps, featur
             break
     return output
 
-decoder_infer=load_model('result/decoder_infer.h5')
-encoder_infer=load_model('result/encoder_infer.h5')
-
 for i in range(1000,1100):
     test = encoder_input[i:i+1,:,:]#i:i+1保持数组是三维
     out = predict_chinese(test,encoder_infer,decoder_infer,output_length,output_feature_length)
     print(input_texts[i],'\n---\n',target_texts[i],'\n---\n',out)
     print(input_texts[i])
     print(out)
-
-
-# if __name__ == '__main__':
-#     parser=argparse.ArgumentParser()
-#     parser.add_argument('--eng','-e',type=str,required=True,help="please input a english sentence")
-#     args=parser.parse_args()
-#     chinese_sentence=predict_chinese(args.eng,encoder_infer,decoder_infer,output_length,output_feature_length)
-#     print(chinese_sentence)
