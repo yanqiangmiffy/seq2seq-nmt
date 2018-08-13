@@ -25,6 +25,7 @@ def load_data(filepath,num_samples=10000):
 
     input_dict={char:index for index,char in enumerate(input_characters)}
     input_dict_reverse={index:char for index,char in enumerate(input_characters)}
+
     target_dict={char:index for index,char in enumerate(targets_characters)}
     target_dict_reverse={index:char for index,char in enumerate(targets_characters)}
 
@@ -45,6 +46,6 @@ def load_data(filepath,num_samples=10000):
     return input_texts,target_texts,target_dict,target_dict_reverse,output_length,\
            input_feature_length,output_feature_length,encoder_input,decoder_input,decoder_output
 
-# if __name__ == '__main__':
-#     data_path = 'data/cmn.txt'
-#     load_data(data_path)
+if __name__ == '__main__':
+    data_path = 'data/cmn.txt'
+    load_data(data_path)
