@@ -12,7 +12,7 @@ epoch = 200
 num_samples = 10000
 
 # 加载数据
-input_texts,target_dict,target_dict_reverse, \
+input_texts,target_texts,target_dict,target_dict_reverse,\
     output_length,input_feature_length,output_feature_length,\
     encoder_input,decoder_input,decoder_output=load_data(file_path,num_samples)
 
@@ -26,6 +26,9 @@ plot_model(to_file='assets/encoder.png',model=encoder_infer,show_shapes=True)
 plot_model(to_file='assets/decoder.png',model=decoder_infer,show_shapes=True)
 
 model_train.compile(optimizer='rmsprop', loss='categorical_crossentropy')
+encoder_infer.compile(optimizer='rmsprop')
+decoder_infer.compile(optimizer='rmsprop')
+
 print(model_train.summary())
 print(encoder_infer.summary())
 print(decoder_infer.summary())

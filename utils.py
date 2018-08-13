@@ -12,7 +12,7 @@ def load_data(filepath,num_samples=10000):
 
     input_characters=sorted(list(set(data.inputs.unique().sum())))
     targets_characters=sorted(list(set(data.targets.unique().sum())))
-    print(targets_characters)
+    # print(targets_characters)
 
     input_length=max([len(i) for i in input_texts])
     output_length=max([len(i) for i in target_texts])
@@ -42,9 +42,8 @@ def load_data(filepath,num_samples=10000):
     # print(' '.join([target_dict_reverse[np.argmax(i)] for i in decoder_output[0] if max(i)!=0]))
     # print(' '.join([target_dict[np.argmax(i)] for i in decoder_input[0] if max(i)!=0]))
 
-    return input_texts,target_dict,target_dict_reverse,\
-           output_length,input_feature_length,output_feature_length,\
-           encoder_input,decoder_input,decoder_output
+    return input_texts,target_texts,target_dict,target_dict_reverse,output_length,\
+           input_feature_length,output_feature_length,encoder_input,decoder_input,decoder_output
 
 # if __name__ == '__main__':
 #     data_path = 'data/cmn.txt'
