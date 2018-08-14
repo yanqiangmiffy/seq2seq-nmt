@@ -43,7 +43,7 @@ def load_data(filepath,num_samples=10000):
     # print(' '.join([target_dict_reverse[np.argmax(i)] for i in decoder_output[0] if max(i)!=0]))
     # print(' '.join([target_dict[np.argmax(i)] for i in decoder_input[0] if max(i)!=0]))
 
-    return input_texts,target_texts,target_dict,target_dict_reverse,output_length,\
+    return input_texts,target_texts,input_dict,target_dict,target_dict_reverse,output_length,\
            input_feature_length,output_feature_length,encoder_input,decoder_input,decoder_output
 
 # if __name__ == '__main__':

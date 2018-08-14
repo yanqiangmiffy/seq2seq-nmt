@@ -10,11 +10,11 @@ import numpy as np
 file_path='data/cmn.txt'
 n_units = 256
 batch_size = 64
-epoch = 20
+epoch = 200
 num_samples = 10000
 
 # 加载数据
-input_texts,target_texts,target_dict,target_dict_reverse,\
+input_texts,target_texts,input_dict,target_dict,target_dict_reverse,\
     output_length,input_feature_length,output_feature_length,\
     encoder_input,decoder_input,decoder_output=load_data(file_path,num_samples)
 
