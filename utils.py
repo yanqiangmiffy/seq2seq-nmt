@@ -42,10 +42,23 @@ def load_data(filepath,num_samples=10000):
     # print(' '.join([input_dict_reverse[np.argmax(i)] for i in encoder_input[0] if max(i)!=0]))
     # print(' '.join([target_dict_reverse[np.argmax(i)] for i in decoder_output[0] if max(i)!=0]))
     # print(' '.join([target_dict[np.argmax(i)] for i in decoder_input[0] if max(i)!=0]))
-
+    data_dict=dict()
+    data_dict['input_texts']=input_texts
+    data_dict['target_texts']=target_texts
+    data_dict['input_dict']=input_dict
+    data_dict['input_dict_reverse']=input_dict_reverse
+    data_dict['target_dict']=target_dict
+    data_dict['target_dict_reverse']=target_dict_reverse
+    data_dict['input_length']=input_length
+    data_dict['output_length']=output_length
+    data_dict['input_feature_length']=input_feature_length
+    data_dict['output_feature_length']=output_feature_length
+    data_dict['encoder_input']=encoder_input
+    data_dict['decoder_input']=decoder_input
+    data_dict['decoder_output']=decoder_output
     return input_texts,target_texts,input_dict,target_dict,target_dict_reverse,output_length,\
            input_feature_length,output_feature_length,encoder_input,decoder_input,decoder_output
 
-# if __name__ == '__main__':
-#     data_path = 'data/cmn.txt'
-#     load_data(data_path)
+if __name__ == '__main__':
+    data_path = 'data/cmn.txt'
+    load_data(data_path)
