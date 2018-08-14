@@ -1,4 +1,4 @@
-<div align=center><img width="150" height="150" src="https://github.com/yanqiangmiffy/seq2seq-nmt/blob/master/assets/test.png"/></div>
+<div align=center><img width="968" height="450" src="https://github.com/yanqiangmiffy/seq2seq-nmt/blob/master/assets/test.png"/></div>
 # seq2seq-nmt
 
 基于Keras实现seq2seq，进行英文到中文的翻译
