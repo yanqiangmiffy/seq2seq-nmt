@@ -40,6 +40,7 @@ It is up to you.
 ```text
 python predict.py --eng_sent "It's a nice day."
 
+今天天气真好
 ```
 
 ## 参考：
