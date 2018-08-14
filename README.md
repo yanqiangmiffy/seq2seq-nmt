@@ -1,8 +1,9 @@
+<div align=center><img width="150" height="150" src="https://github.com/yanqiangmiffy/seq2seq-nmt/blob/master/assets/test.png"/></div>
 # seq2seq-nmt
 
 基于Keras实现seq2seq，进行英文到中文的翻译
 
-![](https://github.com/yanqiangmiffy/seq2seq-nmt/blob/master/assets/seq2seq.jpg)
+![](https://github.com/yanqiangmiffy/seq2seq-nmt/blob/master/assets/seq2seq.png)
 
 
 ## 模型结构
@@ -40,6 +41,7 @@ It is up to you.
 ```text
 python predict.py --eng_sent "It's a nice day."
 
+今天天氣很好。
 ```
 
 ## 参考：
