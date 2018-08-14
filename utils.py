@@ -3,7 +3,7 @@ import numpy as np
 
 
 def load_data(filepath,num_samples=10000):
-    data=pd.read_table(filepath,header=None).iloc[:num_samples,:]
+    data=pd.read_table(filepath,header=None).iloc[:num_samples,:,]
     data.columns=['inputs','targets']
     data['targets']=data['targets'].apply(lambda x:'\t'+x+'\n')
 
@@ -46,6 +46,6 @@ def load_data(filepath,num_samples=10000):
     return input_texts,target_texts,target_dict,target_dict_reverse,output_length,\
            input_feature_length,output_feature_length,encoder_input,decoder_input,decoder_output
 
-if __name__ == '__main__':
-    data_path = 'data/cmn.txt'
-    load_data(data_path)
+# if __name__ == '__main__':
+#     data_path = 'data/cmn.txt'
+#     load_data(data_path)
