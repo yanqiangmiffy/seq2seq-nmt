@@ -17,6 +17,30 @@
 
 ![](https://github.com/yanqiangmiffy/seq2seq-nmt/blob/master/assets/decoder.png)
 
+## 测试结果
+```text
+Is it all there?
+全都在那裡嗎？
+
+Is it too salty?
+还有多余的盐吗？
+
+Is she Japanese?
+她是日本人嗎？
+
+Is this a river?
+這是一條河嗎?
+
+Isn't that mine?
+那是我的吗？
+
+It is up to you.
+由你來決定。
+```
+```text
+python predict.py --eng_sent "It's a nice day."
+
+```
 
 ## 参考：
 

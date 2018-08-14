@@ -43,11 +43,12 @@ def predict_chinese(source,encoder_inference, decoder_inference, n_steps, featur
 
 encoder_infer=load_model("result/encoder_infer.h5")
 decoder_infer=load_model("result/decoder_infer.h5")
-#
+
 # for i in range(1000,1100):
 #     test = encoder_input[i:i+1,:,:]#i:i+1保持数组是三维
 #     out = predict_chinese(test,encoder_infer,decoder_infer,output_length,output_feature_length)
-#     print(input_texts[i],'\n---\n',target_texts[i],'\n---\n',out.replace(' ','').strip())
+#     print(input_texts[i])
+#     print(out)
 
 
 if __name__ == '__main__':
